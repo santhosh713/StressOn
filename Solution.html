@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StressON - Production Monitoring Solutions</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #007BFF; 
+            padding: 20px 40px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img.logo {
+            max-width: 100px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #ff9800;
+        }
+
+        /* Free Demo Button */
+        .demo-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            background-color: #e67e00;
+        }
+
+        /* Company Name */
+        .company-name {
+            font-size: 32px;
+            color: white;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+
+        /* Container for sections */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Section */
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #e0e6ed;
+            margin-bottom: 40px;
+        }
+
+        .product h2 {
+            font-size: 42px;
+            font-weight: 600;
+            flex: 1;
+            color: #333;
+        }
+
+        .product img {
+            max-width: 300px;
+            flex: 1;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            padding: 20px;
+            background: url('SS3.png') center/cover no-repeat; /* Background image */
+            position: relative;
+            color: #333;
+        }
+
+        .feature-box {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-box img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #004a99;
+        }
+
+        /* Specifications Section */
+        .specifications {
+            background: url('SS4.png') center/cover no-repeat; /* Background image */
+            padding: 40px;
+            position: relative;
+            color: #333;
+        }
+
+        .specifications::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Overlay for readability */
+            z-index: 1;
+        }
+
+        .specifications h2 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .specification-box {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2; /* Bring specification boxes in front */
+        }
+
+        /* Product Comparison Section */
+        .product-comparison {
+            background-color: #f1f5f9;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .comparison-box {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .comparison-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .comparison-box h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #004a99;
+        }
+
+        .comparison-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .comparison-box ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .company-name {
+                font-size: 28px;
+                margin: 20px 0;
+            }
+
+            .product {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product h2 {
+                font-size: 32px;
+            }
+
+            .features, .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+	/* Applications Section */
+.applications {
+    background-color: #f4f4f4;
+    padding: 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.applications h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.application-category {
+    margin-bottom: 20px;
+}
+
+.application-category h3 {
+    color: #007BFF;
+}
+
+.applications ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.application-content {
+    display: flex; /* Create a flex container for side-by-side layout */
+    justify-content: space-between; /* Space between the text and image */
+    align-items: flex-start; /* Align items at the top */
+}
+
+.application-details {
+    flex: 1; /* Take up most of the space on the left */
+    margin-right: 20px; /* Space between the text and the image */
+}
+
+.application-image-box {
+    flex: 0 0 30%; /* Fixed width for the image box on the right side */
+    background-color: #f4f4f4; /* Optional: Add a background color to the image box */
+    padding: 10px; /* Optional: Padding inside the box */
+    text-align: center; /* Center the image in the box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect to the box */
+}
+
+.application-image-box img {
+    max-width: 100%; /* Ensure the image fits within the box */
+    height: 50%; /* Maintain the aspect ratio of the image */
+    display: block; /* Ensure the image takes full width of the box */
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Navigation -->
+    <header>
+        <img src="capture.png" alt="StressON Logo" class="logo">
+        <span class="company-name">StressON Engineering</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>                
+                <li><a href="solution.html">solution</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <button class="demo-btn" onclick="window.location.href='contact.html'">Request a Free Demo</button>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+
+        <!-- Product Section -->
+        <section class="product">
+            <h2>Production Monitoring Sensor</h2>
+            <img src="5.png" alt="Machine Monitoring Sensor">
+        </section>
+
+         <!-- Features Section -->
+        <section class="features" id="features">
+            <h2>Features</h2>
+            <div class="feature-box">
+                <img src="f1.png" alt="Feature 1">
+                <h4>Dual mode operation</h4>
+                <p>Capable of working in both online and offline modes.</p>
+            </div>
+            <div class="feature-box">
+                <img src="f2.png" alt="Feature 2">
+                <h4>Real-Time Monitoring</h4>
+                <p>Real-time production monitoring for improved operational efficiency.</p>
+            </div>
+            <div class="feature-box">
+                <img src="f3.png" alt="Feature 3">
+                <h4>Chart Representation</h4>
+                <p>Visualize metrics and trends for better decision-making with intuitive charts.</p>
+            </div>
+            <div class="feature-box">
+                <img src="f4.png" alt="Feature 4">
+                <h4>Excel Data Export</h4>
+                <p>Customizable reporting and in-depth analysis through easy data export.</p>
+            </div>
+            <div class="feature-box">
+                <img src="f5.png" alt="Feature 5">
+                <h4>Wi-Fi Integration</h4>
+                <p>Reliable connectivity and seamless data transmission using Wi-Fi.</p>
+            </div>
+            <div class="feature-box">
+                <img src="f6.png" alt="Feature 6">
+                <h4>Multiple User Access</h4>
+                <p>Collaborate with team members through diverse access levels.</p>
+            </div>
+            <div class="feature-box">
+                <img src="f7.png" alt="Feature 7">
+                <h4>USB Connectivity</h4>
+                <p>Convenient USB pin for flexible power connectivity options.</p>
+            </div>
+        </section>
+
+     <!-- Specifications Section -->
+        <section class="specifications" id="specifications">
+            <h2>Specifications</h2>
+            <div class="specification-box">
+                <img src="s1.png" alt="Specification 1">
+                <h4>Detection Range: 5 mm to 50 mm</h4>
+                <p>Accurately detect objects within this range, providing flexibility for various measurements.</p>
+            </div>
+            <div class="specification-box">
+                <img src="s2.png" alt="Specification 2">
+                <h4>Battery: 36 Hrs of Power</h4>
+                <p>The sensor can operate on battery power for up to  36hrs before needing a recharge or replacement.</p>
+            </div>
+            <div class="specification-box">
+                <img src="s3.png" alt="Specification 3">
+                <h4>Power Consumption: 200 mAh</h4>
+                <p>The sensor consumes 200 milliampere-hours of current, ensuring energy efficiency.</p>
+            </div>
+            <div class="specification-box">
+                <img src="s4.png" alt="Specification 4">
+                <h4>Wi-Fi Range: 30 meters</h4>
+                <p>The sensor can connect to a Wi-Fi network within a 30-meter range for wireless data transmission.</p>
+            </div>
+            <div class="specification-box">
+                <img src="s5.png" alt="Specification 5">
+                <h4>Object Detection Delay: 0.5 seconds</h4>
+                <p>The sensor requires the object to remain in the detection zone for at least 0.5 seconds to trigger detection.</p>
+            </div>
+            <div class="specification-box">
+                <img src="s6.png" alt="Specification 6">
+                <h4>Waterproof Rating: IP55</h4>
+                <p>The sensor is protected against dust and water jets, making it suitable for harsh environments.</p>
+            </div>
+            <div class="specification-box">
+                <img src="s7.png" alt="Specification 7">
+                <h4>Power Supply: 5V DC via microUSB</h4>
+                <p>Powered by a 5V direct current input through a microUSB connection for versatile power options.</p>
+            </div>
+	    <div class="specification-box">
+                <img src="s8.png" alt="Specification 7">
+                <h4>IR Photoelectric Sensor</h4>
+                <p>Suitable for detecting both metallic and non-metallic objects.</p>
+            </div>
+        </section>
+
+          <section class="product-comparison" id="product-comparison">
+    <h2>Product Comparison</h2>
+    <div class="comparison-grid">
+        <div class="comparison-box">
+            <h4>StressOn Meter</h4>
+            <ul>
+                <li><strong>Accuracy:</strong> Good</li>
+                <li><strong>Online Excel sheet log:</strong> Yes</li>
+                <li><strong>External power supply:</strong> 48 hrs battery optional</li>
+                <li><strong>Installation:</strong> Easy</li>
+                <li><strong>Realtime updation:</strong> Yes</li>
+                <li><strong>Chart representation:</strong> Yes</li>
+                <li><strong>Multiple user access:</strong> Yes</li>
+            </ul>
+        </div>
+        <div class="comparison-box">
+            <h4>Manual Meter</h4>
+            <ul>
+                <li><strong>Accuracy:</strong> Low</li>
+                <li><strong>Online Excel sheet log:</strong> No</li>
+                <li><strong>External power supply:</strong> No</li>
+                <li><strong>Installation:</strong> Complicated</li>
+                <li><strong>Realtime updation:</strong> No</li>
+                <li><strong>Chart representation:</strong> No</li>
+                <li><strong>Multiple user access:</strong> No</li>
+            </ul>
+        </div>
+        <div class="comparison-box">
+            <h4>Digital Meter</h4>
+            <ul>
+                <li><strong>Accuracy:</strong> Good</li>
+                <li><strong>Online Excel sheet log:</strong> No</li>
+                <li><strong>External power supply:</strong> Required</li>
+                <li><strong>Installation:</strong> Complicated</li>
+                <li><strong>Realtime updation:</strong> No</li>
+                <li><strong>Chart representation:</strong> No</li>
+                <li><strong>Multiple user access:</strong> No</li>
+            </ul>
+        </div>
+    </div>
+</section>
+	<section class="applications" id="applications">
+    <h2>Applications</h2>
+    <div class="application-category">
+        <h3>Production Monitoring</h3>
+        <p>Focuses on providing real-time visibility into machine performance, Overall Equipment Effectiveness (OEE), downtime, and historical reporting. This helps manufacturers optimize their production processes and improve efficiency.</p>
+    </div>
+    <div class="application-category">
+        <h3>Condition Monitoring</h3>
+        <p>Real-time tracking of machine health and status, allowing maintenance managers and engineers to respond proactively to potential issues before they lead to machine failure or production downtime.</p>
+    </div>
+    <div class="application-category">
+        <h3>Predictive Maintenance</h3>
+        <p>Uses machine data to diagnose, predict, and prevent potential failures, increasing equipment uptime. This predictive approach avoids the need for physical sensors by leveraging historical data and algorithms.</p>
+    </div>
+    <div class="application-category">
+        <h3>Process Optimization</h3>
+        <p>Aimed at improving workflows and production processes based on real-time insights. This empowers operators and process engineers to implement adjustments that enhance production efficiency and product quality.</p>
+    </div>
+    
+    <h3>Industry-Specific Applications:</h3>
+    <ul>
+        <li>Aerospace and Defense: Tailored apps to enhance production efficiency, reduce cycle time, and optimize tooling and setups for aerospace part production.</li>
+    </ul>
+    
+    <h3>Common Manufacturing Sectors Mentioned:</h3>
+    <ul>
+        <li>Automotive</li>
+        <li>Blow Molding</li>
+        <li>Brewery</li>
+        <li>Cannabis</li>
+        <li>Consumer Packaged Goods (CPG)</li>
+        <li>Distillery</li>
+        <li>Food & Beverage</li>
+        <li>Injection Molding</li>
+        <li>Metal Forming/Stamping</li>
+    </ul>
+    
+<section class="work-applications" id="work-applications">
+    <h2>Work Applications</h2>
+
+    <div class="application-content">
+        <!-- Left side with text details -->
+        <div class="application-details">
+            <div class="application-category">
+                <h3>Injection Moulding</h3>
+                <p>In this application, we can collect the following data:</p>
+                <ul>
+                    <li>Downtime</li>
+                    <li>Output count</li>
+                    <li>Quality Defects</li>
+                    <li>Operator identification</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Assembly Line</h3>
+                <p>In this application, we can collect the following data:</p>
+                <ul>
+                    <li>Downtime</li>
+                    <li>Output count</li>
+                    <li>Quality Defects</li>
+                    <li>Product and operator identification</li>
+                    <li>Effectiveness</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Welding Stations</h3>
+                <p>In this application, we can collect the following data:</p>
+                <ul>
+                    <li>Downtime</li>
+                    <li>Output count</li>
+                    <li>Operator identification</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Metal Fabrication Stations</h3>
+                <p>In this application, we can collect the following data:</p>
+                <ul>
+                    <li>Downtime - No material, Maintenance, Mold defective</li>
+                    <li>Output count</li>
+                    <li>Cycle time</li>
+                    <li>Operator identification</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right side with the image box -->
+        <div class="application-image-box">
+            <img src="111.png" alt="Work Applications Image">
+        </div>
+    </div>
+</section>
+
+    </div>
+<!-- Free Trial Section -->
+<section style="text-align: center; padding: 50px 20px; background-color: #007BFF; color: white;">
+    <h2>READY FOR YOUR FREE TRIAL?</h2>
+    <p>Discover actionable insights that drive efficiency.</p>
+    <a href="contact.html" style="text-decoration: none;">
+        <button style="background-color: #FFD700; border: none; padding: 15px 30px; font-size: 18px; color: #007BFF; cursor: pointer; border-radius: 10px;">
+            Book a Demo
+        </button>
+    </a>
+</section>
+<!-- Footer Section -->
+<footer style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
+    <p>Follow Us On:</p>
+    <a href="https://facebook.com/YourFacebookID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">Facebook</a>
+    <a href="https://instagram.com/YourInstagramID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">Instagram</a>
+    <a href="https://linkedin.com/in/YourLinkedInID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">LinkedIn</a>
+    <p>Address: Chennai, Tamil Nadu , India</p>
+    <p>&copy; 2024 StressON Engineering. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StressON - Contact Us</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #007BFF;
+            padding: 20px 40px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img.logo {
+            max-width: 120px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .company-name {
+            font-size: 40px;
+            margin-left: 20px;
+        }
+
+        /* Contact and Demo Sections */
+        .section-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #007BFF;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .contact-info p {
+            color: #666;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form label {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .form input, .form textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .form button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mobile Friendly Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .company-name {
+                font-size: 28px;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            header nav ul li {
+                margin: 5px 0;
+            }
+
+            .section-container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header>
+        <img src="capture.png" alt="StressON Logo" class="logo">
+        <span class="company-name">StressON Engineering</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Solution.html">Solution</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <div class="section-container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>Email: stressonenggs@gmail.com </p>
+        </div>
+        <form class="form" id="contactForm">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Free Demo Section -->
+    <div class="section-container">
+        <h2>Request a Free Demo</h2>
+        <form class="form" id="demoForm">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" placeholder="Enter your company name" required>
+
+            <label for="demo-email">Your Email</label>
+            <input type="email" id="demo-email" name="demo-email" placeholder="Enter your email" required>
+
+            <label for="demo-details">Additional Details</label>
+            <textarea id="demo-details" name="demo-details" rows="5" placeholder="Tell us more about your needs" required></textarea>
+
+            <button type="submit">Request Free Demo</button>
+        </form>
+    </div>
+
+    <script>
+        // Firebase logic for Contact Us form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Send contact form data to Firebase
+            fetch('https://weight-scale-w13-be5a0-default-rtdb.firebaseio.com/contactUs.json?auth=AIzaSyCDw1Wj7XKAW3ulebJgoLrIXbMM48UeKEY', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Your message has been sent successfully!');
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        // Firebase logic for Demo Request form
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const company = document.getElementById('company').value;
+            const demoEmail = document.getElementById('demo-email').value;
+            const demoDetails = document.getElementById('demo-details').value;
+
+            // Send demo request data to Firebase
+            fetch('https://weight-scale-w13-be5a0-default-rtdb.firebaseio.com/demoRequests.json?auth=AIzaSyCDw1Wj7XKAW3ulebJgoLrIXbMM48UeKEY', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    company: company,
+                    email: demoEmail,
+                    details: demoDetails
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Your demo request has been submitted successfully!');
+                document.getElementById('demoForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

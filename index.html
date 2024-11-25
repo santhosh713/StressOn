@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="StressON provides advanced IoT machine monitoring solutions for enhanced productivity, cost efficiency, and scalability in industrial applications.">
+    <meta name="keywords" content="IoT, machine monitoring, StressON, industrial IoT, real-time production monitoring, industrial efficiency, IoT solutions">
+    <meta name="robots" content="index, follow">
+    <title>StressON - Machine Monitoring Solutions</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #007BFF;
+            padding: 20px 40px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img.logo {
+            max-width: 120px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .company-name {
+            font-size: 28px;
+            margin-left: 20px;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.8)), url('hero-background.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            color: white;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        #hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: #ff4a56;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e43f48;
+        }
+
+        /* Benefits Section */
+        #benefits {
+            padding: 100px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .benefits-content {
+            flex: 1;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .benefits-content h2 {
+            font-size: 32px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .benefits-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .benefits-content ul {
+            list-style: none;
+            padding: 0;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .benefits-content ul li {
+            margin: 10px 0;
+        }
+
+        .benefits-content ul li strong {
+            color: #007BFF;
+        }
+
+        /* Video with Text Section */
+        #video-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        #video-section .text-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        #video-section .text-content h2 {
+            font-size: 32px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        #video-section .text-content p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #video-section .text-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #video-section .text-content ul li {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        #video-section .text-content ul li strong {
+            color: #007BFF;
+        }
+
+        #video-section .video-container {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        #video-section video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .company-name {
+                font-size: 24px;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+            }
+
+            header nav ul li {
+                margin: 10px 0;
+            }
+
+            #hero {
+                flex-direction: column;
+                height: auto;
+                text-align: center;
+                padding: 20px;
+            }
+
+            #hero h1 {
+                font-size: 32px;
+            }
+
+            #hero p {
+                font-size: 20px;
+            }
+
+            #benefits {
+                flex-direction: column;
+                padding: 50px 20px;
+            }
+
+            .benefits-content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            #video-section {
+                flex-direction: column;
+            }
+
+            #video-section .text-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            #video-section .video-container {
+                margin-top: 20px;
+            }
+        }
+	#freeTrialModal {
+    display: none; /* Hide modal initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#freeTrialModal div {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Navigation -->
+    <header>
+        <img src="capture.png" alt="StressON Logo" class="logo">
+        <span class="company-name">StressON Engineering</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Solution.html">Solution</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div>
+            <h1>Revolutionize Your Machine with StressON</h1>
+            <p>Harness the power of innovative IoT solutions with real-time production monitoring and dual-mode functionality to streamline processes, reduce downtime, and boost industrial efficiency.</p>
+            <a href="#cta" class="btn">Get Started Today!</a>
+        </div>
+        <div>
+            <img src="ss3.png" alt="Product SS3" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+   <!-- Updated Section: Benefits of StressON -->
+<section id="benefits">
+    <div>
+        <img src="ss2.png" alt="Product SS2" style="max-width: 70%; border-radius: 10px;">
+    </div>
+    <div class="benefits-content">
+        <h2>Unlock the Benefits of StressON</h2>
+        <p>Investing in StressON’s machine monitoring solutions offers unparalleled advantages to your business:</p>
+        <ul>
+            <li><strong>QUICK TO DEPLOY:</strong> StressON is a plug-and-play solution that is user-friendly and scalable, allowing manufacturers to rapidly implement and expand across their operations.</li>
+            <li><strong>AUTONOMOUS DATA COLLECTION:</strong> Production data is automatically gathered without requiring operator input, ensuring accurate and real-time insights into machine and production performance.</li>
+            <li><strong>DRIVE IMMEDIATE VALUE:</strong> Pre-configured applications are ready to use out-of-the-box, requiring no initial development, providing quick returns on investment.</li>
+            <li><strong>CONNECTS TO EVERYTHING:</strong> StressON easily captures data from both modern and legacy equipment, ensuring a comprehensive view of the production environment without the need for costly upgrades.</li>
+        </ul>
+    </div>
+</section>
+
+
+   <!-- Updated Section: Plug-and-Play Production Monitoring Platform -->
+<section id="production-monitoring-platform" style="padding: 60px 20px; background-color: #f9f9f9;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1; padding-right: 20px;">
+            <h2>PLUG-AND-PLAY Production Monitoring Platform</h2>
+            <p>Easily gather data from any machine by connecting StressON’s Edge device to the machine's ethernet port. The Edge software processes machine data in real-time, securely streaming it to the cloud for analysis.</p>
+
+            <h3>Identify and Resolve Downtime</h3>
+            <p>Monitor and manage machine status remotely, scaling across both modern and legacy equipment. Get a comprehensive view of downtime causes to improve equipment efficiency.</p>
+
+            <h3>MACHINE UTILIZATION MONITORING</h3>
+            <p>Track machine utilization hourly, daily, or monthly, uncovering hidden capacities and optimizing shop floor efficiency.</p>
+
+            <h3>REAL-TIME MACHINE CONDITIONS</h3>
+            <p>Leverage real-time diagnostics for condition-based maintenance, integrating with a CMMS to automatically generate work orders.</p>
+        </div>
+        <div style="flex: 1; text-align: center;">
+            <img src="ss4.png" alt="Machine Monitoring Example" style="max-width: 80%; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+<!-- Updated Section: Visualize Production (Replaced video with an image) -->
+<section id="visualize-production" style="padding: 60px 20px; background-color: #fff;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1;">
+            <img src="11.png" alt="Visualizing Production Dashboard" style="max-width: 100%; border-radius: 10px;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <h2>VISUALIZE PRODUCTION</h2>
+
+            <h3>Automated Production Monitoring</h3>
+            <p>Empower operators with real-time performance data to meet production goals, addressing issues as they arise.</p>
+
+            <h3>Smart Decisions with Real-Time Data</h3>
+            <p>With StressON, you can track every detail on the shop floor—down to individual parts and work orders—helping to set accurate benchmarks for planning, quoting, and scheduling.</p>
+
+            <h3>Downtime and Quality Monitoring</h3>
+            <p>Utilize Pareto charts to report on downtime and quality issues, identifying the most common inefficiencies.</p>
+
+            <h3>Job & Operator Reporting</h3>
+            <p>Evaluate production runs by comparing performance data across shifts, machines, cells, and operators.</p>
+
+            <h3>OEE Performance</h3>
+            <p>Analyze and optimize performance with real-time cycle data, ensuring improvements in machine availability, quality, and overall OEE metrics.</p>
+        </div>
+    </div>
+</section>
+
+<!-- New Section: Production Monitoring System -->
+<section id="production-monitoring" style="padding: 60px 20px; background-color: #f9f9f9;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1; padding-right: 20px;">
+            <h2>Selecting the Ideal Production Monitoring System for Your Factory Floor</h2>
+            <p>Production monitoring is the backbone of contemporary manufacturing, offering real-time data on all aspects of the production process. It involves the ongoing collection and evaluation of data from various sources on the factory floor, such as equipment, sensors, and production lines.</p>
+            <p>By presenting this information in real time, manufacturers gain critical insights into machine performance, operational efficiency, and resource management. This real-time transparency supports proactive decision-making, enabling manufacturers to quickly spot and resolve issues, reduce downtime, improve workflows, and ultimately boost output and profitability. In short, production monitoring is the compass, guiding manufacturers toward operational excellence in the industrial sector.</p>
+        </div>
+        <div style="flex: 1; text-align: center;">
+            <img src="44.png" alt="Real-time Monitoring Example" style="max-width: 100%; height: 300px; border-radius: 10px;">
+
+        </div>
+    </div>
+</section>
+
+<!-- Analyze and Optimize Section -->
+<section id="analyze-optimize" style="padding: 60px 20px; background-color: #fff;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1;">
+            <img src="66.png" alt="Analytics Dashboard" style="max-width: 80%; border-radius: 10px;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <h2>ANALYZE & OPTIMIZE YOUR PRODUCTION RUNS</h2>
+            <p>Enhance production efficiency by leveraging utilization analytics to uncover trends that highlight potential areas for improvement. These insights help you maximize your factory's capacity and streamline operations.</p>
+            <p>Achieve greater visibility into both operational processes and equipment performance with real-time dashboards, ensuring transparency across all levels of the factory floor. This data-driven approach facilitates informed decision-making and improves operational control.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Free Trial Section -->
+<section style="text-align: center; padding: 50px 20px; background-color: #007BFF; color: white;">
+    <h2>READY FOR YOUR FREE TRIAL?</h2>
+    <p>Discover actionable insights that drive efficiency.</p>
+    <a href="contact.html" style="text-decoration: none;">
+        <button style="background-color: #FFD700; border: none; padding: 15px 30px; font-size: 18px; color: #007BFF; cursor: pointer; border-radius: 10px;">
+            Book a Demo
+        </button>
+    </a>
+</section>
+<!-- Footer Section -->
+<footer style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
+    <p>Follow Us On:</p>
+    <a href="https://facebook.com/YourFacebookID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">Facebook</a>
+    <a href="https://instagram.com/YourInstagramID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">Instagram</a>
+    <a href="https://linkedin.com/in/YourLinkedInID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">LinkedIn</a>
+    <p>Address: Chennai, Tamil Nadu , India</p>
+    <p>&copy; 2024 StressON Engineering. All Rights Reserved.</p>
+</footer>
+
+<!-- Free Trial Modal -->
+<div id="freeTrialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0, 0, 0, 0.7); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background:white; padding: 20px; border-radius: 10px; text-align:center;">
+        <h2>Ready for Your Free Trial?</h2>
+        <p>Discover actionable insights that drive efficiency.</p>
+        <a href="contact.html" style="text-decoration: none;">
+            <button style="background-color: #007BFF; border: none; padding: 10px 20px; font-size: 16px; color: white; cursor: pointer; border-radius: 5px;">Book a Demo</button>
+        </a>
+        <button id="closeModal" style="background-color: #FF4500; border: none; padding: 10px 20px; font-size: 16px; color: white; cursor: pointer; border-radius: 5px; margin-top: 10px;">Close</button>
+    </div>
+</div>
+<script>
+    // Function to show the modal
+    function showModal() {
+        document.getElementById("freeTrialModal").style.display = "flex";
+    }
+
+    // Function to hide the modal
+    document.getElementById("closeModal").onclick = function() {
+        document.getElementById("freeTrialModal").style.display = "none";
+    };
+
+    // Show modal every 30 seconds
+    setInterval(showModal, 30000); // 30000 milliseconds = 30 seconds
+
+    // Optional: Hide the modal after a certain time (e.g., 10 seconds)
+    function autoCloseModal() {
+        setTimeout(function() {
+            document.getElementById("freeTrialModal").style.display = "none";
+        }, 10000); // 10000 milliseconds = 10 seconds
+    }
+
+    // Call autoCloseModal when modal is shown
+    document.getElementById("freeTrialModal").addEventListener('click', function() {
+        autoCloseModal();
+    });
+</script>
+
+
+</body>
+</html>

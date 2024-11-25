@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StressON - Shop</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #007BFF;
+            padding: 20px 40px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow elements to wrap on small screens */
+        }
+
+        header img.logo {
+            max-width: 120px;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #FFD700; /* Gold color on hover */
+        }
+
+        .company-name {
+            font-size: 40px;
+            margin-left: 20px;
+            flex-grow: 1; /* Allow the company name to take up space */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start; /* Align items to the left on smaller screens */
+            }
+
+            .company-name {
+                font-size: 24px; /* Reduce font size for mobile */
+                margin-bottom: 10px; /* Add some space below the company name */
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%; /* Make the nav take the full width */
+                padding-top: 10px; /* Add padding at the top */
+            }
+
+            header nav ul li {
+                margin: 10px 0; /* Add margin between each link */
+            }
+        }
+
+        /* Shop Section */
+        .shop {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .shop h2 {
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive design */
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product-item {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-item:hover {
+            transform: scale(1.02);
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .product-item h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-item p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .purchase-button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .purchase-button:hover {
+            background-color: #0056b3;
+        }
+
+        .price-highlight {
+            font-weight: bold;
+            font-size: 20px;
+            color: #FF4500;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .specification-list {
+            text-align: left;
+            margin: 10px 0;
+            padding: 0 15px;
+            list-style-type: square;
+            color: #555;
+        }
+
+        .specification-list li {
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+	.calculations {
+    padding: 60px 20px;
+}
+
+.tool-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.tool-container h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tool-container label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.tool-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.tool-container button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tool-container button:hover {
+    background-color: #0056b3;
+}
+
+.tool-container p {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="capture.png" alt="StressON Logo" class="logo">
+        <span class="company-name">StressON Engineering</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Solution.html">Solution</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="shop">
+        <h2>Our Shop</h2>
+        <div class="product-list">
+            <!-- Product A -->
+            <div class="product-item">
+                <img src="product1.png" alt="Product A">
+                <h3>Product A</h3>
+                <p>High-quality product with excellent performance.</p>
+                <ul class="specification-list">
+                    <li>Counting System with 50mm x 50mm OLED display: Yes</li>
+                    <li>Battery: No</li>
+                    <li>Power Supply Converter: No</li>
+                    <li>User Access: 1</li>
+                    <li class="price-highlight">Price: 2500 INR</li>
+                </ul>
+                <a href="purchase.html?productType=Product%20A&totalCost=2500">
+                    <button class="purchase-button">Buy Now</button>
+                </a>
+            </div>
+
+            <!-- Product B -->
+            <div class="product-item">
+                <img src="product2.png" alt="Product B">
+                <h3>Product B</h3>
+                <p>Top-notch product designed for efficiency.</p>
+                <ul class="specification-list">
+                    <li>Counting System with 50mm x 50mm OLED display: Yes</li>
+                    <li>Battery: Yes</li>
+                    <li>Power Supply Converter: Yes</li>
+                    <li>User Access: 2</li>
+                    <li class="price-highlight">Price: 4000 INR</li>
+                </ul>
+                <a href="purchase.html?productType=Product%20B&totalCost=4000">
+                    <button class="purchase-button">Buy Now</button>
+                </a>
+            </div>
+
+            <!-- Product C -->
+            <div class="product-item">
+                <img src="product3.png" alt="Product C">
+                <h3>Product C</h3>
+                <p>Reliable and affordable solution for all customers.</p>
+                <ul class="specification-list">
+                    <li>Counting System with 50mm x 50mm OLED display: Yes</li>
+                    <li>Battery: Yes</li>
+                    <li>Power Supply Converter: Yes</li>
+                    <li>User Access: 3</li>
+                    <li class="price-highlight">Price: 4500 INR</li>
+                </ul>
+                <a href="purchase.html?productType=Product%20C&totalCost=4500">
+                    <button class="purchase-button">Buy Now</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<div class="calculations">
+    <h2>Calculations</h2>
+    <div class="tool-container">
+        <h3>OEE Calculation</h3>
+        <form id="oeeForm">
+            <label for="availability">Availability (%): </label>
+            <input type="number" id="availability" step="0.01" required><br>
+            <label for="performance">Performance (%): </label>
+            <input type="number" id="performance" step="0.01" required><br>
+            <label for="quality">Quality (%): </label>
+            <input type="number" id="quality" step="0.01" required><br>
+            <button type="button" onclick="calculateOEE()">Calculate OEE</button>
+        </form>
+        <p>OEE: <span id="oeeResult">--</span>%</p>
+    </div>
+
+    <div class="tool-container">
+        <h3>ROI Calculation</h3>
+        <form id="roiForm">
+            <label for="gain">Gain from Investment: </label>
+            <input type="number" id="gain" required><br>
+            <label for="cost">Cost of Investment: </label>
+            <input type="number" id="cost" required><br>
+            <button type="button" onclick="calculateROI()">Calculate ROI</button>
+        </form>
+        <p>ROI: <span id="roiResult">--</span>%</p>
+    </div>
+
+    <div class="tool-container">
+        <h3>Cycle Time Calculation</h3>
+        <form id="cycleTimeForm">
+            <label for="totalTime">Total Time (in seconds): </label>
+            <input type="number" id="totalTime" required><br>
+            <label for="totalUnits">Total Units Produced: </label>
+            <input type="number" id="totalUnits" required><br>
+            <button type="button" onclick="calculateCycleTime()">Calculate Cycle Time</button>
+        </form>
+        <p>Cycle Time: <span id="cycleTimeResult">--</span> seconds</p>
+    </div>
+</div>
+
+<script>
+    // OEE Calculation
+    function calculateOEE() {
+        let availability = parseFloat(document.getElementById("availability").value) / 100;
+        let performance = parseFloat(document.getElementById("performance").value) / 100;
+        let quality = parseFloat(document.getElementById("quality").value) / 100;
+        let oee = (availability * performance * quality) * 100;
+        document.getElementById("oeeResult").innerText = oee.toFixed(2);
+    }
+
+    // ROI Calculation
+    function calculateROI() {
+        let gain = parseFloat(document.getElementById("gain").value);
+        let cost = parseFloat(document.getElementById("cost").value);
+        let roi = ((gain - cost) / cost) * 100;
+        document.getElementById("roiResult").innerText = roi.toFixed(2);
+    }
+
+    // Cycle Time Calculation
+    function calculateCycleTime() {
+        let totalTime = parseFloat(document.getElementById("totalTime").value);
+        let totalUnits = parseInt(document.getElementById("totalUnits").value);
+        let cycleTime = totalTime / totalUnits;
+        document.getElementById("cycleTimeResult").innerText = cycleTime.toFixed(2);
+    }
+</script>
+
+
+
+
+<!-- Free Trial Section -->
+<section style="text-align: center; padding: 50px 20px; background-color: #007BFF; color: white;">
+    <h2>READY FOR YOUR FREE TRIAL?</h2>
+    <p>Discover actionable insights that drive efficiency.</p>
+    <a href="contact.html" style="text-decoration: none;">
+        <button style="background-color: #FFD700; border: none; padding: 15px 30px; font-size: 18px; color: #007BFF; cursor: pointer; border-radius: 10px;">
+            Book a Demo
+        </button>
+    </a>
+</section>
+<!-- Footer Section -->
+<footer style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
+    <p>Follow Us On:</p>
+    <a href="https://facebook.com/YourFacebookID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">Facebook</a>
+    <a href="https://instagram.com/YourInstagramID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">Instagram</a>
+    <a href="https://linkedin.com/in/YourLinkedInID" target="_blank" style="margin-right: 15px; text-decoration: none; color: white;">LinkedIn</a>
+   <p>Address: Chennai, Tamil Nadu , India</p>
+    <p>&copy; 2024 StressON Engineering. All Rights Reserved.</p>
+</footer>
+
+</body>
+
+</html>

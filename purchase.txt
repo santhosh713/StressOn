@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StressON - Purchasing</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative; /* Allows absolute positioning for child elements */
+            overflow: hidden; /* Prevents overflow of child elements */
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"], input[type="email"] {
+            width: calc(100% - 22px); /* Account for padding and border */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+        .submit-button, .back-button {
+            display: block;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Spacing for buttons */
+        }
+        .submit-button:hover, .back-button:hover {
+            background-color: #0056b3;
+        }
+        .summary {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .summary h3 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        ul {
+            padding-left: 20px; /* Indentation for list */
+        }
+        ul li {
+            margin-bottom: 10px; /* Spacing between list items */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Purchase Information</h2>
+        <form id="purchaseForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Delivery Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <div class="summary">
+                <h3>Purchase Summary</h3>
+                <p><strong>Product Type:</strong> <span id="productType"></span></p>
+                <p><strong>Total Cost:</strong> <span id="totalCost"></span> INR</p>
+                <p><strong>Payment Method:</strong> Bank Transfer</p>
+                <ul>
+                    <li>Products are made to order, with a lead time of 3-5 business days after we confirm payment. The timeline may vary depending on order size.</li>
+                    <li>For manual bank transfers, place your order, and we will email you the bank details and invoice.</li>
+                    <li>Once payment is made, please email us the confirmation. Your order will be delivered upon completion.</li>
+                </ul>
+            </div>
+
+            <button type="submit" class="submit-button">Place Order</button>
+            <button type="button" class="back-button" onclick="window.location.href='Pricing.html'">Back to Shop</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let m;
+            while (m = regex.exec(queryString)) {
+                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            return params;
+        }
+
+        // Get product details from URL
+        const params = getQueryParams();
+        document.getElementById('productType').innerText = params.productType || 'Not specified';
+        document.getElementById('totalCost').innerText = params.totalCost || '0';
+
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const productType = document.getElementById('productType').innerText;
+            const totalCost = document.getElementById('totalCost').innerText;
+
+            // Send to Firebase
+            fetch('https://weight-scale-w13-be5a0-default-rtdb.firebaseio.com/purchases.json?auth=AIzaSyCDw1Wj7XKAW3ulebJgoLrIXbMM48UeKEY', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    address: address,
+                    productType: productType,
+                    totalCost: totalCost
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Purchase details submitted successfully!');
+                // You can redirect or show a confirmation message here
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

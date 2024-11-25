@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Sensor -1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: red;
+            text-align: center;
+            font-size: 24px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .reset-password {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .reset-password button {
+            background-color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monitoring Sensor -1</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button id="enterButton">Enter</button>
+        <div class="reset-password">
+            <button id="resetPasswordButton">Reset Password</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle button click events
+        document.getElementById('enterButton').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username && password) {
+                alert(`Username: ${username}, Password: ${password}`);
+            } else {
+                alert('Please fill in both fields.');
+            }
+        });
+
+        document.getElementById('resetPasswordButton').addEventListener('click', function() {
+            alert('Reset Password clicked');
+        });
+    </script>
+</body>
+</html>
